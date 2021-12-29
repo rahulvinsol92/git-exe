@@ -1,0 +1,257 @@
+1. Create a repository
+     Login to Github and create new repository
+    Use “git init command”  in terminal (Initialized empty Git repository in /Volumes/vinsol work/Rahul Sharma/work/Git-task-1/Git-task-1/.git/)
+
+2.	Make some changes -- add some files, change content of some files 
+          Add some file   Using  (git add .. ) command
+          
+          
+ 3.	commit changes
+Commit files using  (git commit -m “first-commit”) command
+
+
+4. repeat steps 1-3 for 2 more times. try to remove and ignore some files 
+       Added some files and make changes to exiting file. 
+       Create a gitignore file using (touch .gitignore) command
+
+5.  Use git diff before each commit.
+Rahuls-MacBook-Pro:Git-ex-1 rahul$ use( git diff) index.html
+diff --git a/index.html b/index.html
+index 03ec9ee..b564ac3 100644
+--- a/index.html
++++ b/index.html
+@@ -10,6 +10,7 @@
+ <body>
+   <h1>This is my file.</h1>
+   <h2>My first git </h2>
++  <h3>git changed</h3>
+ </body>
+ 
+ 6.create changes and revert those changes using git when those changes are not added to staging are
+ 
+ Rahuls-MacBook-Pro:Git-ex-1 rahul$  git checkout -- index.html
+ 
+ 
+ 7. create changes and revert those changes after adding changes to staging are
+
+ Rahuls-MacBook-Pro:Git-task-1 rahul$  git reset HEAD blog.html
+ Unstaged changes after reset:
+M	blog.html
+Rahuls-MacBook-Pro:Git-task-1 rahul$  git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   blog.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+ 
+ 
+ 8. create change and revert those changes after committing those changes .
+ 
+ Rahuls-MacBook-Pro:git-exe rahul$  git revert cd0ff3a119bb07937a03a498aa665422c030b988
+hint: Waiting for your editor to close the file... 
+Revert "first file"
+  
+This reverts commit cd0ff3a119bb07937a03a498aa665422c030b988.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is up to date with 'origin/master'.
+#
+# Changes to be committed:
+#       deleted:    file
+#       deleted:    first
+
+ 
+9.  Check repository status before adding changes to staging area, after adding changes to staging area and after committing changes .
+
+ 
+Rahuls-MacBook-Pro:git-exe rahul$  git status  (Before adding to staging)
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	deleted:    file
+	deleted:    first
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   second
+
+Rahuls-MacBook-Pro:git-exe rahul$   git add .
+Rahuls-MacBook-Pro:git-exe rahul$  git status  (after adding to staging)
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	deleted:    file
+	deleted:    first
+	modified:   second
+
+Rahuls-MacBook-Pro:git-exe rahul$  git commit -m "second-file"
+[master f0c5f4c] second-file
+ 3 files changed, 1 insertion(+)
+ delete mode 100644 file
+ delete mode 100644 first
+Rahuls-MacBook-Pro:git-exe rahul$  git status         (after committing)
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 10. Display all the commits.
+ 
+Rahuls-MacBook-Pro:Git-ex-1 rahul$ use (git log) command
+commit fe8957e040ab50b5db0038539476da578b28b048 (HEAD -> master, origin/master)
+Author: RahulSharma <rahul.sharma@vinsol.com>
+Date:   Tue Dec 28 13:17:51 2021 +0530
+
+    gitchanged
+
+commit d51cb3df29dfa65de461c29ab5fd770f4cf9d7ac
+Author: RahulSharma <rahul.sharma@vinsol.com>
+Date:   Tue Dec 28 12:49:47 2021 +0530
+
+    first-index-file
+    
+    
+    
+11. Display a specific commit .
+
+Rahuls-MacBook-Pro:Git-ex-1 rahul$ use (git log -p -1) command
+commit dc76e7cb5f2e154a38520b9ac3ad8fd60187fa44 (HEAD -> master)
+Author: RahulSharma <rahul.sharma@vinsol.com>
+Date:   Tue Dec 28 14:57:11 2021 +0530
+
+    Second-index.html only p Element use
+
+diff --git a/.DS_Store b/.DS_Store
+new file mode 100644
+index 0000000..a958c39
+Binary files /dev/null and b/.DS_Store differ
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+index 0000000..e69de29
+diff --git a/file b/file
+new file mode 100644
+index 0000000..e69de29
+diff --git a/first b/first
+new file mode 100644
+index 0000000..e69de29
+diff --git a/index-1.html b/index-1.html
+new file mode 100644
+index 0000000..b31daa7
+--- /dev/null
+
+12. create branches called "feature1" and "feature2" from master. 11 . Delete branch "feature2".
+
+Rahuls-MacBook-Pro:Git-ex-1 rahul$  git checkout -b "feature1"
+Switched to a new branch 'feature1'
+Rahuls-MacBook-Pro:Git-ex-1 rahul$  git branch
+* feature1
+  master
+Rahuls-MacBook-Pro:Git-ex-1 rahul$  git checkout -b "feature2"
+Switched to a new branch 'feature2'
+Rahuls-MacBook-Pro:Git-ex-1 rahul$ git branch
+  feature1
+* feature2
+  master
+Rahuls-MacBook-Pro:Git-ex-1 rahul$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+  
+Rahuls-MacBook-Pro:Git-ex-1 rahul$  git branch -d feature2
+Deleted branch feature2 (was dc76e7c).
+Rahuls-MacBook-Pro:Git-ex-1 rahul$  git branch 
+  feature1
+* master
+
+
+13 . Make some commits on "feature1".
+Rahuls-MacBook-Pro:Git-task-1 rahul$  git commit -m "index.html feature1"
+[feature1 ae049ee] index.html feature1
+ 1 file changed, 18 insertions(+)
+ create mode 100644 a-index.html
+
+
+14.  Make some commits on branch "master".
+Rahuls-MacBook-Pro:Git-ex-1 rahul$  git add .
+Rahuls-MacBook-Pro:Git-ex-1 rahul$  git commit  -m "master branch"
+[master f79bf12] master branch
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 error.log
+
+
+15. Merge branch "feature1" in "master" (make some conflicts by changing same file on same line in both the branches) 
+Rahuls-MacBook-Pro:Git-task-1 rahul$  git merge feature1
+Updating 6f37afb..ae049ee
+Fast-forward
+ a-index.html | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+ create mode 100644 a-index.html
+
+16. create branch "feature2" from master .
+Rahuls-MacBook-Pro:Git-task-1 rahul$  git checkout -b feature2
+Switched to a new branch 'feature2'
+
+17. Make some commits on branch "master"
+Rahuls-MacBook-Pro:Git-task-1 rahul$  git add .
+Rahuls-MacBook-Pro:Git-task-1 rahul$ git commit -m "new commit for master branch"
+[master b3d8c71] new commit for master branch
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 .DS_Store
+ create mode 100644 secondfile
+Rahuls-MacBook-Pro:Git-task-1 rahul$ 
+
+
+18.rebase branch "master" in "feature2" (make some conflicts by changing same file on same line in both the branches) .
+
+Rahuls-MacBook-Pro:git-exe rahul$  git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: feature1-branch
+Applying:  add f1.text
+
+
+19.  find the differences between "merge" and "rebase" in above cases.
+—Merge: It’s basically joins development histories together, preserving history as it happened.
+—Rebase: Reapplies commits on the top of another branch, and rewrites history. 
+
+
+20.  Use git stash
+
+
+Rahuls-MacBook-Pro:git-exe rahul$  git stash  save " Added Hello world "
+Saved working directory and index state On feature1:  Added Hello world 
+Rahuls-MacBook-Pro:git-exe rahul$  git stash list 
+stash@{0}: On feature1: Added Hello world
+Rahuls-MacBook-Pro:git-exe rahul$  git stash apply stash@{0}
+On branch feature1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   m1.text
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Rahuls-MacBook-Pro:git-exe rahul$  git stash drop
+Dropped refs/stash@{0} (701aaff4b3b6b95c890b3ba2aab900116c64322d)
+
+21 . create a repository on github for your working repository and push changes on remote repository.
